@@ -5,6 +5,9 @@
 :root {
   width: 100%;
 }
+*::-webkit-scrollbar {
+  display: none;
+}
 
 h1 {
   font-size: 34px;

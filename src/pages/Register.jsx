@@ -63,7 +63,7 @@ const Register = () => {
               <InputLabel htmlFor='outlined-adornment-email'>Email</InputLabel>
               <OutlinedInput
                 id='outlined-adornment-email'
-                aria-describedby='outlined-weight-helper-text'
+                aria-describedby='outlined-email-helper-text'
                 inputProps={{
                   "aria-label": "email",
                 }}
