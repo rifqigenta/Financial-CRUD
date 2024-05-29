@@ -1,11 +1,20 @@
 import React, { useEffect, useState } from "react";
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import axios from "axios";
 import { Badge, Button } from "@mui/material";
+import CartModal from "../utils/CartModal";
 
 const Product = () => {
   const [product, setProduct] = useState([]);
   const [cart, setCart] = useState([]);
+
+  const [isCartOpen, setIsCartOpen] = useState(false);
+
+  const handleOpenCart = () => {
+    setIsCartOpen(true);
+  };
+  const handleCloseCart = () => {
+    setIsCartOpen(false);
+  };
 
   useEffect(() => {
     axios.get("https://fakestoreapi.com/products").then((response) => {
@@ -21,9 +30,11 @@ const Product = () => {
     <>
       <div className='flex mx-5 my-5 justify-between items-center'>
         <h3>Checkout</h3>
+        {/* <button onClick={handleOpenCart}> */}
         <Badge badgeContent={cart.length} color='primary'>
-          <ShoppingCartIcon color='primary' />
+          <CartModal />
         </Badge>
+        {/* </button> */}
       </div>
       <hr className='mx-5 my-5' />
       <div className='grid grid-cols-4 gap-6 mx-5 max-h-[85vh] overflow-y-scroll overflow-x-hidden'>
@@ -40,7 +51,7 @@ const Product = () => {
           </div>
         ))}
       </div>
-      {/* </div> */}
+      {/* <CartModal open={isCartOpen} onClose={handleCloseCart} /> */}
     </>
   );
 };

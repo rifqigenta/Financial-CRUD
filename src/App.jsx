@@ -16,12 +16,12 @@ const App = () => {
       <Route path='/login' element={<Login />} />
       <Route path='/register' element={<Register />} />
       {/* Protected Routes */}
-      {/* <Route path='/' element={<PrivateRoute />}> */}
-      <Route path='/' element={<Layout />}>
-        <Route index element={<Dashboard />} />
-        <Route path='product' element={<Product />} />
+      <Route path='/' element={<PrivateRoute />}>
+        <Route path='/' element={<Layout />}>
+          <Route index element={<Dashboard />} />
+          <Route path='product' element={<Product />} />
+        </Route>
       </Route>
-      {/* </Route> */}
     </Routes>
     // </BrowserRouter>
   );
